@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Inside <head> -->
+<title>Gorillaz Streetwear - [Our Services]</title>
+<meta name="description" content="Gorillaz Streetwear offers premium dark-themed urban fashion. Discover our caps, t-shirts, and more.">
+<meta name="keywords" content="Gorillaz, streetwear, urban fashion, dark theme, caps, t-shirts">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore services offered by Gorillaz - Custom design, shipping, and support." />
+    <meta name="keywords" content="Gorillaz services, fashion support, custom streetwear" />
+    <meta name="author" content="Gorillaz Streetwear" />
+    <title>Services - Gorillaz</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script defer src="assets/js/script.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <img src="Gorillaz-Logo-19981.png" width="600">
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="gorrillaz_website.html">Home</a></li>
+                    <li><a href="about-us.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="contact-us.html">Contact</a></li>
+                    <li><a href="enquiry.html">Enquiry</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+<!-- GALLERY -->
+<div id="gallery" class="gallery-container"></div>
+<!-- Add near top of <body> just below opening tag -->
+  <input type="text" id="product-search" placeholder="Search products..." style="padding:8px; margin:20px auto; display:block; max-width:300px;">
+  <div id="product-list" class="gallery-container"></div>
+  
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox hidden">
+  <span id="lightbox-close" class="lightbox-close">&times;</span>
+  <button id="lightbox-prev" class="lightbox-nav prev">&#10094;</button>
+  <img id="lightbox-img" class="lightbox-img" src="" alt="Expanded view">
+  <button id="lightbox-next" class="lightbox-nav next">&#10095;</button>
+</div>
+<script>
+  const images = [
+    'Gorillaz streetwear cap (1).webp',
+    'Gorillaz streetwear shorts.jpg',
+    'Gorrilaz t-shirt.jpg'
+  ];
+
+  let currentIndex = 0;
+
+  const gallery = document.getElementById('gallery');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  // Add images to the gallery
+  images.forEach((src, index) => {
+    const img = document.createElement('img');
+    img.src = `assets/images/${src}`;
+    img.alt = 'Gorillaz piece';
+    img.classList.add('gallery-img');
+    img.addEventListener('click', () => openLightbox(index));
+    gallery.appendChild(img);
+  });
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = `assets/images/${images[currentIndex]}`;
+    lightbox.classList.remove('hidden');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add('hidden');
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImg.src = `assets/images/${images[currentIndex]}`;
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImg.src = `assets/images/${images[currentIndex]}`;
+  }
+
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-next').addEventListener('click', showNext);
+  document.getElementById('lightbox-prev').addEventListener('click', showPrev);
+
+  // Optional: click outside image to close
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+</script>
+
+  
+  
+</script>
+
+        <section class="wrapper">
+            <h1>Our Services</h1>
+            <ul>
+                <li>🧵 Custom Streetwear Design</li>
+                <li>🚚 Nationwide Delivery in South Africa</li>
+                <li>📞 Customer Support & Styling Advice</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <div class="wrapper">
+            <p>&copy; 2025 Gorillaz Streetwear. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+      // Place this code after dynamic product DOM helper functions
+      const products = [
+        { id: 1, name: 'Gorillaz Cap', desc: 'Stylish cap', price: 199 },
+        { id: 2, name: 'Gorillaz T‑Shirt', desc: 'Limited edition tee', price: 349 },
+        { id: 3, name: 'Gorillaz Shorts', desc: 'Comfort shorts', price: 299 }
+      ];
+      
+      function renderProducts(list) {
+        const container = document.getElementById('product-list');
+        if (!container) return;
+        container.innerHTML = '';
+        list.forEach(p => {
+          const card = document.createElement('div');
+          card.className = 'product-card';
+          card.innerHTML = `
+            <h3>${p.name}</h3>
+            <p>${p.desc}</p>
+            <p>R${p.price}</p>
+          `;
+          container.appendChild(card);
+        });
+      }
+      renderProducts(products);
+      
+      document.getElementById('product-search').addEventListener('input', e => {
+        const term = e.target.value.toLowerCase();
+        renderProducts(products.filter(p => p.name.toLowerCase().includes(term)));
+      });
+      </script>
+      
+</body>
+</html>

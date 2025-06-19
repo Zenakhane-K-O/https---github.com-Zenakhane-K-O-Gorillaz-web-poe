@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gorillaz Streetwear – Urban Fashion for All</title>
+        <meta name="description" content="Shop Gorillaz Streetwear: caps, t-shirts, and shorts with bold attitude. Style meets comfort." />
+        <meta name="keywords" content="Gorillaz, streetwear, caps, shorts, t-shirts, fashion, urban wear, South Africa" />
+        <meta name="robots" content="index, follow" />
+      
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Gorillaz - Bold dark streetwear fashion for the fearless generation." />
+    <meta name="keywords" content="Gorillaz, streetwear, fashion, dark theme, urban clothing" />
+    <meta name="author" content="Your Name or Brand" />
+    <title>Gorillaz Streetwear</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script defer src="assets/js/script.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <img src="Gorillaz-Logo-19981.png" width="600">
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="gorrillaz_website.html">Home</a></li>
+                    <li><a href="about-us.html" class="active">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="contact-us.html" class="active">Contact</a></li>
+                    <li><a href="enquiry.html">Enquiry</a></li>
+                    
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="abt" id="about">
+            <div class="wrapper">
+                <h2>About Gorillaz</h2>
+                <p>We are a dark-themed streetwear brand that blends rebellion with creativity. Express yourself in style.</p>
+            </div>
+        </section>
+        <section id="product-section" class="wrapper fade-in">
+            <input type="text" id="searchBox" placeholder="Search products..." class="form-control" />
+
+            <h2>Explore Our Collection</h2>
+            <div id="product-container" class="gallery-container"></div>
+            
+          </section>
+          
+          <script>
+            
+            const products = [
+              { name: "Gorillaz Cap", image: "assets/images/Gorillaz streetwear cap (1).webp" },
+              { name: "Gorillaz Shorts", image: "assets/images/Gorillaz streetwear shorts.jpg" },
+              { name: "Gorillaz T-shirt", image: "assets/images/Gorrilaz t-shirt.jpg" }
+            ];
+          
+            const container = document.getElementById("product-container");
+            products.forEach(p => {
+              const card = document.createElement("div");
+              card.className = "product-card fade-in";
+              card.innerHTML = `<img src="${p.image}" alt="${p.name}"><p>${p.name}</p>`;
+              container.appendChild(card);
+            });
+          </script>
+          
+        <section class="bg-05" id="collection">
+            <div class="wrapper">
+                <h2>Our Collection</h2>
+                <div class="main-team-card">
+                    <div class="team-setup">
+                        <div class="team-user">
+                            <img src="assets/images/Gorillaz streetwear hoodie.jpg" width="400" alt="Gorillaz branded hoodie">
+
+                        </div>
+                    </div>
+                    <div class="team-setup">
+                        <div class="team-user">
+                            <img src="Gorillaz streetwear shirt.jpg" width="500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="wrapper">
+                <h2>Contact Us</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email" required />
+                        <i class="fal fa-envelope-open"></i>
+                    </div>
+                    <button type="submit" class="form-control">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrapper">
+            <h3>Stay Connected</h3>
+            <p>Subscribe for exclusive drops and latest updates.</p>
+            <form id="footer-form">
+                <div class="form-group">
+                    <input type="email" id="footer-email" class="form-control" placeholder="Your email address" required />
+                    <i class="fal fa-envelope-open"></i>
+                </div>
+                <button type="submit" class="form-control">Subscribe</button>
+            </form>
+        </div>
+        <div class="wrapper">
+            <ul class="se">
+                <li><strong>Opening Hours:</strong></li>
+                <li>Mon - Fri: <span>9:00 AM - 6:00 PM</span></li>
+                <li>Sat - Sun: <span>10:00 AM - 4:00 PM</span></li>
+            </ul>
+        </div>
+    </footer>
+    <script>
+        const searchBox = document.getElementById('searchBox');
+        searchBox.addEventListener('input', function () {
+          const term = this.value.toLowerCase();
+          document.querySelectorAll('.product-card').forEach(card => {
+            card.style.display = card.innerText.toLowerCase().includes(term) ? '' : 'none';
+          });
+        });
+      </script>
+      
+</body>
+</html>

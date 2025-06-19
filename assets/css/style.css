@@ -1,0 +1,344 @@
+/* ========== VARIABLES ========== */
+:root {
+    --primary-color: #00ffc8;
+    --hover-color: #00bfa6;
+    --background-dark: #000;
+    --background-main: #121212;
+    --background-wrapper: #1a1a1a;
+    --text-main: #fff;
+    --text-muted: #ccc;
+    --text-light: #aaa;
+    --accent-color: #f0c330;
+}
+
+/* ========== GLOBAL ========== */
+body {
+    background-color: var(--background-dark);
+    color: var(--text-main);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+/* ========== HEADER ========== */
+header {
+    background-color: #111;
+    padding: 20px 0;
+    border-bottom: 1px solid #222;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 40px;
+    text-align: center;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu ul li a {
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--text-main);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+/* ========== SECTION HEADINGS ========== */
+section h2,
+section h5 {
+    color: var(--primary-color);
+    margin: 20px 0 10px;
+    font-weight: bold;
+}
+
+/* ========== WRAPPERS ========== */
+.wrapper {
+    background-color: var(--background-wrapper);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.08);
+}
+
+/* ========== SECTIONS ========== */
+section.abt,
+section.bg-01,
+section.bg-05,
+footer {
+    background-color: var(--background-main);
+    padding: 60px 20px;
+}
+
+.main-team-card,
+.main-card-contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-setup,
+.sup-card-contact,
+.sup-card-contact-0a {
+    flex: 1 1 300px;
+    background-color: var(--background-wrapper);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.team-user img {
+    border: 5px solid #333;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* ========== TEXT ========== */
+p,
+.content p,
+.content li {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+ol,
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ol li,
+ul li {
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+/* ========== FORM ========== */
+.form-control,
+.form-group input,
+input[type="email"],
+textarea.form-control {
+    background-color: #222;
+    border: 1px solid #333;
+    color: var(--text-main);
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    resize: vertical;
+}
+
+.form-control::placeholder {
+    color: var(--text-light);
+}
+
+.form-group {
+    position: relative;
+    margin-top: 10px;
+}
+
+.form-group i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+/* ========== FOOTER ========== */
+footer .wrapper {
+    background-color: var(--background-wrapper);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+footer h2,
+footer h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+footer p,
+footer span,
+footer li {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+footer ul.se {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+footer ul.se li span {
+    display: block;
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 3px;
+}
+
+/* ========== GALLERY + LIGHTBOX ========== */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.gallery-img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox.hidden {
+    display: none;
+}
+
+.lightbox-img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.lightbox-nav.prev {
+    left: 20px;
+}
+
+.lightbox-nav.next {
+    right: 20px;
+}
+
+/* ========== ANIMATIONS ========== */
+.fade-in {
+    animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+a, button {
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #00ffc8;
+    transform: scale(1.05);
+}
+
+.team-user img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.form-control:hover {
+    background-color: #1e1e1e;
+    transition: background-color 0.3s ease;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .main-nav,
+    .logo,
+    .menu ul,
+    .main-team-card,
+    .main-card-contact {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul {
+        gap: 15px;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    img {
+        width: 100%;
+    }
+}

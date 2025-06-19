@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Inside <head> -->
+<title>Gorillaz Streetwear - [Enquiry]</title>
+<meta name="description" content="Gorillaz Streetwear offers premium dark-themed urban fashion. Discover our caps, t-shirts, and more.">
+<meta name="keywords" content="Gorillaz, streetwear, urban fashion, dark theme, caps, t-shirts">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gorillaz Enquiry</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: center;
+      background: #111;
+      padding: 1rem;
+      border-bottom: 1px solid #00ffcc;
+    }
+
+    header nav a {
+      color: #00ffcc;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: #fff;
+    }
+
+    .enquiry-wrapper {
+      max-width: 700px;
+      margin: 3rem auto;
+      background: #111;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00ffcc;
+      animation: fadeIn 1s ease;
+    }
+
+    .enquiry-wrapper h2 {
+      text-align: center;
+      color: #00ffcc;
+      margin-bottom: 1.5rem;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: #ccc;
+    }
+
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1.2rem;
+      background: #222;
+      color: #fff;
+      border: 1px solid #00ffcc;
+      border-radius: 10px;
+      transition: border 0.3s ease;
+    }
+
+    form input:focus, form select:focus, form textarea:focus {
+      border-color: #fff;
+      outline: none;
+    }
+
+    form button {
+      background-color: #00ffcc;
+      color: #000;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #00ccaa;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="gorrillaz_website.html">Home</a> 
+      <a href="about-us.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="contact-us.html">Contact Us</a>
+      <a href="enquiry.html">Enquiry</a>
+    </nav>
+  </header>
+
+  <section class="enquiry-wrapper">
+    <h2>Product Enquiry</h2>
+    <form id="enquiry-form" action="https://api.example.com/enquiry" method="POST">
+
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="product">Product Interested In:</label>
+      <select id="product" name="product" required>
+        <option value="">-- Select a Product --</option>
+        <option value="Cap">Gorillaz Cap</option>
+        <option value="T-Shirt">Gorillaz T-Shirt</option>
+        <option value="Shorts">Gorillaz Shorts</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Submit Enquiry</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Gorillaz Streetwear. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('enquiry-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const product = document.getElementById('product').value;
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !product || !message) {
+        alert('Please complete all fields.');
+        return;
+      }
+
+      alert(`Thanks, ${name}. Your enquiry for "${product}" has been received!`);
+      this.reset();
+    });
+  </script>
+<div id="form-error" style="color: #f33; text-align:center;"></div>
+<script>
+const form = document.getElementById('enquiry-form');
+const err = document.getElementById('form-error');
+
+form.addEventListener('submit', e => {
+  e.preventDefault(); err.textContent = '';
+
+  const data = {
+    name: form.name.value.trim(),
+    email: form.email.value.trim(),
+    product: form.product.value,
+    message: form.message.value.trim()
+  };
+  if (!/^[^@]+@[^@]+\.[^@]+$/.test(data.email)) {
+    return err.textContent = 'Valid email required.';
+  }
+  if (data.name.length < 2) {
+    return err.textContent = 'Name too short.';
+  }
+
+  fetch(form.action, {
+    method: form.method,
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(data)
+  })
+  .then(r => r.ok ? alert('Enquiry sent!') : Promise.reject())
+  .catch(() => err.textContent = 'Submission failed.');
+});
+</script>
+
+</body>
+</html>
+<!-- Enquiry Page -->
