@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap:http://127.0.0.1:3000/contact-us.html/sitemap.xml
+Sitemap:https://zenakhane-k-o.github.io/POE/
