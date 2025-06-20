@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap:https://zenakhane-k-o.github.io/POE/
+Sitemap:https://zenakhane-k-o.github.io/https---github.com-Zenakhane-K-O-Gorillaz-web-poe/
